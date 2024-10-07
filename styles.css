@@ -2,18 +2,43 @@ body {
     background: #262626;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 h1 {
     color: #d1d1d1;
     text-align: center;
-    stroke: #d1d1d1;
+    stroke: #000000;
     stroke-width: 1px;
 }
 
-.projects { display:flex; flex-wrap:wrap; } /* condensed to save space */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .project {
-width: 30%;
-margin: 10px;
-padding: 20px 10px;
-background: #d1d1d1; /* pick a color */
-border-radius: 25%;
+    width: 30%;
+    margin: 10px;
+    padding: 20px 10px;
+    background: #181c24; /* pick a color */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.project img {
+    width: 300px; /* Make the image take up the full width */
+    height: 300px; /* Maintain aspect ratio */
+    margin: 10px;
+    border: 2px solid #d1d1d1;
+    display: block; /* Remove bottom space/gap */
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #d1d1d1;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: #d1d1d1;
 }
