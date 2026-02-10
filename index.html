@@ -42,16 +42,20 @@
             <section id="skills" class="section">
                 <h2>Skills</h2>
                 <div class="skills">
-                    <div class="chip-row">
-                        <span class="chip">C / C++</span>
-                        <span class="chip">Java</span>
-                        <span class="chip">MIPS</span>
-                        <span class="chip">Data Structures</span>
-                        <span class="chip">Algorithms</span>
-                        <span class="chip">Git/GitHub</span>
+                    <div class="pill-wrap">
+                        <span class="pill"><span class="dot"></span>C / C++</span>
+                        <span class="pill"><span class="dot"></span>Java</span>
+                        <span class="pill"><span class="dot"></span>MIPS</span>
+                        <span class="pill"><span class="dot"></span>Data Structures</span>
+                        <span class="pill"><span class="dot"></span>Algorithms</span>
+                        <span class="pill"><span class="dot"></span>Git/GitHub</span>
                     </div>
 
-                    <p class="resume"><b>Resume:</b> <a href="files/Resume.pdf">Download here</a></p>
+                    <div class="pill-wrap" style="margin-top: 12px;">
+                        <a class="pill" href="files/Resume.pdf" target="_blank" rel="noreferrer">
+                            📄 Resume: Download here
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -59,17 +63,24 @@
             <section id="repos" class="section">
                 <div class="section-head">
                     <h2>GitHub Repositories</h2>
-                    <div class="controls">
-                        <input id="search" type="search" placeholder="Search repos..." autocomplete="off" />
+
+                    <!-- Cooler controls -->
+                    <div class="repo-controls">
+                        <div class="searchbox">
+                            <span class="icon">🔎</span>
+                            <input id="search" type="search" placeholder="Search repositories..." autocomplete="off" />
+                        </div>
+
                         <select id="sort">
-                            <option value="updated">Sort: Recently Updated</option>
-                            <option value="stars">Sort: Stars</option>
-                            <option value="name">Sort: Name</option>
+                            <option value="updated">Recently Updated</option>
+                            <option value="stars">Stars</option>
+                            <option value="name">Name</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="note">
+                <!-- Fixed wrapping so it doesn't cut off -->
+                <div class="note repo-status">
                     <p>
                         Showing public repos for
                         <a href="https://github.com/CadenAL" target="_blank" rel="noreferrer">github.com/CadenAL</a>.
@@ -81,7 +92,7 @@
                 <div id="repoGrid" class="grid" aria-live="polite"></div>
             </section>
 
-            <!-- Highlighted projects (optional – same structure you used) -->
+            <!-- Highlighted projects -->
             <section class="section">
                 <h2>Highlighted Projects</h2>
 
@@ -112,10 +123,12 @@
             <section id="contact" class="section">
                 <h2>Contact Me</h2>
                 <div class="contact">
-                    <p>
-                        <a href="mailto:caluksic@email.sc.edu">caluksic@email.sc.edu</a> •
-                        <a href="https://github.com/CadenAL" target="_blank" rel="noreferrer">CadenAL (GitHub)</a>
-                    </p>
+                    <div class="pill-wrap">
+                        <a class="pill" href="mailto:caluksic@email.sc.edu">📧 caluksic@email.sc.edu</a>
+                        <a class="pill" href="https://github.com/CadenAL" target="_blank" rel="noreferrer">
+                            🐙 CadenAL (GitHub)
+                        </a>
+                    </div>
                 </div>
             </section>
         </main>
