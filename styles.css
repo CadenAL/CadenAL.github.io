@@ -95,6 +95,122 @@ a:hover{ text-decoration: underline; }
     padding: 16px;
 }
 
+/* ============================
+   Pill / Bubble Styles
+============================ */
+.pill-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+}
+
+.pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    background: var(--panel2);
+    color: var(--text);
+    font-size:0.95rem;
+    line-height: 1;
+    text-decoration:none;
+    transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.pill:hover{
+    background: rgba(255,255,255,0.13);
+    border-color: rgba(255,255,255,0.22);
+    transform: translateY(-1px);
+}
+
+.pill:active{
+    transform: translateY(0px);
+}
+
+.pill .dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background: var(--accent);
+}
+
+/* ============================
+   Cooler Repo Controls
+============================ */
+.repo-controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    margin:12px 0 14px;
+}
+
+.searchbox{
+    position:relative;
+    flex:1;
+    min-width:260px;
+}
+
+.searchbox input{
+    width:100%;
+    padding:12px 12px 12px 40px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.searchbox input::placeholder{
+    color: rgba(255,255,255,0.55);
+}
+
+.searchbox input:focus{
+    border-color: var(--accent);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 3px rgba(122,162,255,0.20);
+}
+
+.searchbox .icon{
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    opacity:0.6;
+    pointer-events:none;
+}
+
+.repo-controls select{
+    padding:11px 12px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.repo-controls select:focus{
+    border-color: var(--accent);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 3px rgba(122,162,255,0.20);
+}
+
+/* Fix long repo-note line cutting off */
+.repo-status{
+    margin-top:8px;
+    font-size:0.95rem;
+    color: var(--muted);
+    line-height:1.4;
+    white-space: normal;
+    overflow-wrap:anywhere;
+    word-break: break-word;
+}
+
 /* Repo cards */
 .grid{
     display:grid;
