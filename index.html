@@ -19,6 +19,7 @@
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
                     <a href="#repos">GitHub Repos</a>
+                    <a href="#clubs">Clubs</a>
                     <a href="#contact">Contact</a>
                 </nav>
             </div>
@@ -66,7 +67,6 @@
                 <div class="section-head">
                     <h2>GitHub Repositories</h2>
 
-                    <!-- Cooler controls -->
                     <div class="repo-controls">
                         <div class="searchbox">
                             <span class="icon">🔎</span>
@@ -81,7 +81,6 @@
                     </div>
                 </div>
 
-                <!-- Fixed wrapping so it doesn't cut off -->
                 <div class="note repo-status">
                     <p>
                         Showing public repos for
@@ -100,9 +99,9 @@
 
                 <div class="projects">
                     <section class="project">
-                        <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer"
-                            ><h3>Adv Prog Tech (CSCE 240)</h3></a
-                        >
+                        <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer">
+                            <h3>Adv Prog Tech (CSCE 240)</h3>
+                        </a>
                         <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer">
                             <img src="images/project_placeholder.png" alt="Project preview" />
                         </a>
@@ -110,15 +109,44 @@
                     </section>
 
                     <section class="project">
-                        <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer"
-                            ><h3>Algorithmic Design (CSCE 145)</h3></a
-                        >
+                        <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer">
+                            <h3>Algorithmic Design (CSCE 145)</h3>
+                        </a>
                         <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer">
                             <img src="images/algorithmic_design.png" alt="Algorithmic design project preview" />
                         </a>
                         <p>Java projects focusing on algorithmic thinking and data structures.</p>
                     </section>
                 </div>
+            </section>
+
+            <!-- Club Activities -->
+            <section id="clubs" class="section">
+                <div class="section-head">
+                    <h2>Club Activities</h2>
+
+                    <div class="repo-controls">
+                        <div class="searchbox">
+                            <span class="icon">🔎</span>
+                            <input id="clubSearch" type="search" placeholder="Search club activities..." autocomplete="off" />
+                        </div>
+
+                        <select id="clubSort">
+                            <option value="newest">Newest</option>
+                            <option value="club">Club Name</option>
+                            <option value="title">Title</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="note repo-status">
+                    <p>
+                        This section highlights what I’ve worked on in student organizations. I update it as I complete new
+                        events and projects.
+                    </p>
+                </div>
+
+                <div id="clubGrid" class="grid" aria-live="polite"></div>
             </section>
 
             <!-- Contact Me -->
@@ -149,7 +177,6 @@
             const yearEl = document.getElementById("year");
             yearEl.textContent = new Date().getFullYear();
 
-            // Fallback data for offline preview / rate limits
             const sampleRepos = [
                 {
                     name: "Adv-Prog-Tech-240",
@@ -213,27 +240,29 @@
                 const home = r.homepage ? r.homepage : "";
 
                 return `
-          <article class="card">
-            <div class="card-top">
-              <h3 class="repo-name"><a href="${r.html_url}" target="_blank" rel="noreferrer">${escapeHtml(r.name)}</a></h3>
-              <p class="repo-desc">${escapeHtml(desc)}</p>
-            </div>
+                    <article class="card">
+                        <div class="card-top">
+                            <h3 class="repo-name">
+                                <a href="${r.html_url}" target="_blank" rel="noreferrer">${escapeHtml(r.name)}</a>
+                            </h3>
+                            <p class="repo-desc">${escapeHtml(desc)}</p>
+                        </div>
 
-            <div class="card-bottom">
-              <div class="meta">
-                <span class="lang-dot" aria-hidden="true"></span>
-                <span class="lang">${escapeHtml(lang)}</span>
-                <span class="muted">Updated ${escapeHtml(updated)}</span>
-              </div>
+                        <div class="card-bottom">
+                            <div class="meta">
+                                <span class="lang-dot" aria-hidden="true"></span>
+                                <span class="lang">${escapeHtml(lang)}</span>
+                                <span class="muted">Updated ${escapeHtml(updated)}</span>
+                            </div>
 
-              <div class="meta-right">
-                ${badge("Stars", r.stargazers_count)}
-                ${badge("Forks", r.forks_count)}
-                ${home ? `<a class="tiny-link" href="${home}" target="_blank" rel="noreferrer">Live</a>` : ""}
-              </div>
-            </div>
-          </article>
-        `;
+                            <div class="meta-right">
+                                ${badge("Stars", r.stargazers_count)}
+                                ${badge("Forks", r.forks_count)}
+                                ${home ? `<a class="tiny-link" href="${home}" target="_blank" rel="noreferrer">Live</a>` : ""}
+                            </div>
+                        </div>
+                    </article>
+                `;
             }
 
             function sortRepos(repos, mode) {
@@ -281,7 +310,7 @@
                     const data = await res.json();
 
                     const repos = data
-                        .filter(r => !r.fork) // hide forks by default
+                        .filter(r => !r.fork)
                         .map(r => ({
                             name: r.name,
                             html_url: r.html_url,
@@ -295,11 +324,9 @@
 
                     render(repos);
 
-                    // Hook up controls
                     searchEl.addEventListener("input", () => render(repos));
                     sortEl.addEventListener("change", () => render(repos));
                 } catch (e) {
-                    // Fallback (local preview, blocked fetch, rate-limit, etc.)
                     render(sampleRepos);
                     searchEl.addEventListener("input", () => render(sampleRepos));
                     sortEl.addEventListener("change", () => render(sampleRepos));
@@ -307,6 +334,107 @@
             }
 
             loadRepos();
+
+            // ============================
+            // Club Activities
+            // ============================
+            const clubGrid = document.getElementById("clubGrid");
+            const clubSearchEl = document.getElementById("clubSearch");
+            const clubSortEl = document.getElementById("clubSort");
+
+            // Add new items here over time
+            // Put images in: /images/clubs/
+            const clubActivities = [
+                {
+                    title: "Hackathon: Campus Event Finder",
+                    club: "ACM",
+                    date: "2026-02-01",
+                    image: "images/clubs/placeholder1.png",
+                    description:
+                        "Developed a small web application with a team that helps students locate campus events. Worked on backend logic and testing.",
+                    link: ""
+                },
+                {
+                    title: "Linux Security Workshop",
+                    club: "Cybersecurity Club",
+                    date: "2026-01-15",
+                    image: "images/clubs/placeholder2.png",
+                    description:
+                        "Practiced Linux user permissions, security auditing, and basic hardening techniques during a hands-on workshop.",
+                    link: ""
+                }
+            ];
+
+            function clubCard(item) {
+                const safeTitle = escapeHtml(item.title || "Club Activity");
+                const safeClub = escapeHtml(item.club || "Club");
+                const safeDesc = escapeHtml(item.description || "");
+                const safeDate = item.date ? formatDate(item.date) : "";
+
+                const img = item.image ? escapeHtml(item.image) : "images/project_placeholder.png";
+                const link = item.link ? item.link : "";
+
+                const titleHtml = link
+                    ? `<a href="${link}" target="_blank" rel="noreferrer">${safeTitle}</a>`
+                    : safeTitle;
+
+                return `
+                    <article class="card">
+                        <h3 class="club-title">${titleHtml}</h3>
+
+                        <div class="club-meta">
+                            <span class="meta-pill">🏷️ ${safeClub}</span>
+                            ${safeDate ? `<span class="meta-pill">📅 ${escapeHtml(safeDate)}</span>` : ""}
+                        </div>
+
+                        <img class="club-img" src="${img}" alt="${safeTitle} preview" />
+
+                        <p class="club-desc">${safeDesc}</p>
+                    </article>
+                `;
+            }
+
+            function sortClubs(items, mode) {
+                const arr = [...items];
+
+                if (mode === "title") {
+                    arr.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+                } else if (mode === "club") {
+                    arr.sort((a, b) => (a.club || "").localeCompare(b.club || ""));
+                } else {
+                    arr.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+                }
+
+                return arr;
+            }
+
+            function renderClubs(items) {
+                const q = clubSearchEl.value.trim().toLowerCase();
+                const mode = clubSortEl.value;
+
+                let filtered = items;
+                if (q) {
+                    filtered = items.filter(
+                        i =>
+                            (i.title && i.title.toLowerCase().includes(q)) ||
+                            (i.club && i.club.toLowerCase().includes(q)) ||
+                            (i.description && i.description.toLowerCase().includes(q)),
+                    );
+                }
+
+                filtered = sortClubs(filtered, mode);
+
+                if (!filtered.length) {
+                    clubGrid.innerHTML = `<div class="empty">No club activities match your search.</div>`;
+                    return;
+                }
+
+                clubGrid.innerHTML = filtered.map(clubCard).join("");
+            }
+
+            clubSearchEl.addEventListener("input", () => renderClubs(clubActivities));
+            clubSortEl.addEventListener("change", () => renderClubs(clubActivities));
+            renderClubs(clubActivities);
         </script>
     </body>
 </html>
