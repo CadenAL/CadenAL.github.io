@@ -1,72 +1,297 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
-        <title>CSCE 190: Caden Luksic</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>CSCE Portfolio: Caden Luksic</title>
         <link rel="stylesheet" href="styles.css" />
+        <meta name="description" content="Student portfolio showcasing projects and GitHub repositories." />
     </head>
     <body>
-        <h1>Caden Luksic</h1>
+        <header class="header">
+            <div class="container header-inner">
+                <div class="title-wrap">
+                    <h1>Caden Luksic</h1>
+                    <p class="subtitle">Computer Science • Projects • GitHub</p>
+                </div>
 
-        <!-- About Me -->
-        <h2>About Me</h2>
-        <div class="about">
-            <img src="images/jaxdrumming.jpg" />
-            <p>
-                Hello ! My name is Caden !! I am currently pursuing a bachelor's degree in Computer Science. I'm
-                currently practicing SWE alongside programming in MIPS.
-            </p>
-        </div>
+                <nav class="nav">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#repos">GitHub Repos</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </header>
 
-        <!-- Skills -->
-        <h2>Skills</h2>
-        <div class="Skills">
-            <p><b>Resume: </b><a href="files/Resume.pdf">Download here</a></p>
-        </div>
-
-        <h2>Highlighted projects</h2>
-        <div class="projects">
-            <!-- Problem Statement Assignment -->
-            <section class="project">
-                <a href="files/problem-statementcsce190.pdf"><h3>Problem Statement</h3></a>
-                <a href="files/problem-statementcsce190.pdf"><img src="images/meal plan problem statement.png" /></a>
-                <p>Students having unlimited access to food because of meal plans.</p>
+        <main class="container">
+            <!-- About Me -->
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <div class="about">
+                    <img src="images/Ellie.png" alt="Profile photo" />
+                    <p>
+                        Hello! My name is Caden. I’m pursuing a bachelor’s degree in Computer Science. I’m practicing
+                        software engineering fundamentals alongside low-level programming (MIPS), and building projects
+                        that emphasize clean structure and strong problem-solving.
+                    </p>
+                </div>
             </section>
 
-            <!--Affinity Diagram Assignment -->
-            <section class="project">
-                <a href="files/Diet Tracking.pdf"><h3>Affinity Diagram</h3></a>
-                <a href="files/Diet Tracking.pdf"><img src="images/Diet Tracking.png" /></a>
-                <p>An Affinity Diagram talking through the ideas for app features</p>
+            <!-- Skills -->
+            <section id="skills" class="section">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <div class="chip-row">
+                        <span class="chip">C / C++</span>
+                        <span class="chip">Java</span>
+                        <span class="chip">MIPS</span>
+                        <span class="chip">Data Structures</span>
+                        <span class="chip">Algorithms</span>
+                        <span class="chip">Git/GitHub</span>
+                    </div>
+
+                    <p class="resume"><b>Resume:</b> <a href="files/Resume.pdf">Download here</a></p>
+                </div>
             </section>
 
-            <!--Sketches Assignment-->
-            <section class="project">
-                <a href="files/SketchesPDF.pdf"><h3>Sketches</h3></a>
-                <a href="files/SketchesPDF.pdf"><img src="images/SketchesImage.jpg" /></a>
-                <p>Quick simple sketches giving a basic idea of the functions on the app</p>
+            <!-- GitHub Repos -->
+            <section id="repos" class="section">
+                <div class="section-head">
+                    <h2>GitHub Repositories</h2>
+                    <div class="controls">
+                        <input id="search" type="search" placeholder="Search repos..." autocomplete="off" />
+                        <select id="sort">
+                            <option value="updated">Sort: Recently Updated</option>
+                            <option value="stars">Sort: Stars</option>
+                            <option value="name">Sort: Name</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <p>
+                        Showing public repos for
+                        <a href="https://github.com/CadenAL" target="_blank" rel="noreferrer">github.com/CadenAL</a>.
+                        (If you open this file locally and the GitHub API is blocked/rate-limited, the page will fall
+                        back to sample cards.)
+                    </p>
+                </div>
+
+                <div id="repoGrid" class="grid" aria-live="polite"></div>
             </section>
 
-            <!--Paper Prototype Assignment-->
-            <section class="project">
-                <a href="files/prototype.pdf"><h3>Prototype</h3></a>
-                <a href="files/prototype.pdf"><img src="images/prototype.jpg" /></a>
-                <p>A more furnished idea of going through the app</p>
+            <!-- Highlighted projects (optional – same structure you used) -->
+            <section class="section">
+                <h2>Highlighted Projects</h2>
+
+                <div class="projects">
+                    <section class="project">
+                        <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer"
+                            ><h3>Adv Prog Tech (CSCE 240)</h3></a
+                        >
+                        <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer">
+                            <img src="images/project_placeholder.png" alt="Project preview" />
+                        </a>
+                        <p>Coursework repository demonstrating C/C++ programming and structured problem solving.</p>
+                    </section>
+
+                    <section class="project">
+                        <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer"
+                            ><h3>Algorithmic Design (CSCE 145)</h3></a
+                        >
+                        <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer">
+                            <img src="images/algorithmic_design.png" alt="Algorithmic design project preview" />
+                        </a>
+                        <p>Java projects focusing on algorithmic thinking and data structures.</p>
+                    </section>
+                </div>
             </section>
 
-            <section class="project">
-                <a href="https://github.com/CadenAL/CSCE145">
-                    <h3>Algorithmic Design</h3>
-                </a>
-                <a href="https://github.com/CadenAL/CSCE145">
-                    <img src="images/algorithmic_design.png" />
-                </a>
-                <p>Algorithmic Design Coding Projects</p>
+            <!-- Contact Me -->
+            <section id="contact" class="section">
+                <h2>Contact Me</h2>
+                <div class="contact">
+                    <p>
+                        <a href="mailto:caluksic@email.sc.edu">caluksic@email.sc.edu</a> •
+                        <a href="https://github.com/CadenAL" target="_blank" rel="noreferrer">CadenAL (GitHub)</a>
+                    </p>
+                </div>
             </section>
-        </div>
-        <!-- Contact Me -->
-        <h2>Contact Me</h2>
-        <div class="Contact">
-            <p>caluksic@email.sc.edu, CadenAL (github)</p>
-        </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>© <span id="year"></span> Caden Luksic • Built with HTML/CSS/JS</p>
+            </div>
+        </footer>
+
+        <script>
+            const USERNAME = "CadenAL";
+            const repoGrid = document.getElementById("repoGrid");
+            const searchEl = document.getElementById("search");
+            const sortEl = document.getElementById("sort");
+            const yearEl = document.getElementById("year");
+            yearEl.textContent = new Date().getFullYear();
+
+            // Fallback data for offline preview / rate limits
+            const sampleRepos = [
+                {
+                    name: "Adv-Prog-Tech-240",
+                    html_url: "https://github.com/CadenAL/Adv-Prog-Tech-240",
+                    description: "CSCE 240 coursework: advanced programming techniques in C/C++.",
+                    language: "C++",
+                    stargazers_count: 0,
+                    forks_count: 0,
+                    updated_at: new Date().toISOString(),
+                    homepage: "",
+                },
+                {
+                    name: "CSCE145",
+                    html_url: "https://github.com/CadenAL/CSCE145",
+                    description: "Algorithmic design projects and labs.",
+                    language: "Java",
+                    stargazers_count: 0,
+                    forks_count: 0,
+                    updated_at: new Date().toISOString(),
+                    homepage: "",
+                },
+                {
+                    name: "More on GitHub",
+                    html_url: "https://github.com/CadenAL",
+                    description: "See my full project list on GitHub.",
+                    language: "Mixed",
+                    stargazers_count: 0,
+                    forks_count: 0,
+                    updated_at: new Date().toISOString(),
+                    homepage: "",
+                },
+            ];
+
+            function formatDate(iso) {
+                try {
+                    const d = new Date(iso);
+                    return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+                } catch {
+                    return "";
+                }
+            }
+
+            function escapeHtml(str) {
+                return String(str)
+                    .replaceAll("&", "&amp;")
+                    .replaceAll("<", "&lt;")
+                    .replaceAll(">", "&gt;")
+                    .replaceAll('"', "&quot;")
+                    .replaceAll("'", "&#039;");
+            }
+
+            function badge(label, value) {
+                if (!value && value !== 0) return "";
+                return `<span class="meta-pill" title="${label}">${value}</span>`;
+            }
+
+            function repoCard(r) {
+                const desc = r.description ? r.description : "No description provided.";
+                const lang = r.language ? r.language : "—";
+                const updated = r.updated_at ? formatDate(r.updated_at) : "";
+                const home = r.homepage ? r.homepage : "";
+
+                return `
+          <article class="card">
+            <div class="card-top">
+              <h3 class="repo-name"><a href="${r.html_url}" target="_blank" rel="noreferrer">${escapeHtml(r.name)}</a></h3>
+              <p class="repo-desc">${escapeHtml(desc)}</p>
+            </div>
+
+            <div class="card-bottom">
+              <div class="meta">
+                <span class="lang-dot" aria-hidden="true"></span>
+                <span class="lang">${escapeHtml(lang)}</span>
+                <span class="muted">Updated ${escapeHtml(updated)}</span>
+              </div>
+
+              <div class="meta-right">
+                ${badge("Stars", r.stargazers_count)}
+                ${badge("Forks", r.forks_count)}
+                ${home ? `<a class="tiny-link" href="${home}" target="_blank" rel="noreferrer">Live</a>` : ""}
+              </div>
+            </div>
+          </article>
+        `;
+            }
+
+            function sortRepos(repos, mode) {
+                const arr = [...repos];
+                if (mode === "name") {
+                    arr.sort((a, b) => a.name.localeCompare(b.name));
+                } else if (mode === "stars") {
+                    arr.sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0));
+                } else {
+                    arr.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+                }
+                return arr;
+            }
+
+            function render(repos) {
+                const q = searchEl.value.trim().toLowerCase();
+                const mode = sortEl.value;
+
+                let filtered = repos;
+                if (q) {
+                    filtered = repos.filter(
+                        r =>
+                            (r.name && r.name.toLowerCase().includes(q)) ||
+                            (r.description && r.description.toLowerCase().includes(q)) ||
+                            (r.language && r.language.toLowerCase().includes(q)),
+                    );
+                }
+
+                filtered = sortRepos(filtered, mode);
+
+                if (!filtered.length) {
+                    repoGrid.innerHTML = `<div class="empty">No repositories match your search.</div>`;
+                    return;
+                }
+
+                repoGrid.innerHTML = filtered.map(repoCard).join("");
+            }
+
+            async function loadRepos() {
+                repoGrid.innerHTML = `<div class="loading">Loading repositories…</div>`;
+
+                try {
+                    const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
+                    if (!res.ok) throw new Error("GitHub API error");
+                    const data = await res.json();
+
+                    const repos = data
+                        .filter(r => !r.fork) // hide forks by default
+                        .map(r => ({
+                            name: r.name,
+                            html_url: r.html_url,
+                            description: r.description,
+                            language: r.language,
+                            stargazers_count: r.stargazers_count,
+                            forks_count: r.forks_count,
+                            updated_at: r.updated_at,
+                            homepage: r.homepage,
+                        }));
+
+                    render(repos);
+
+                    // Hook up controls
+                    searchEl.addEventListener("input", () => render(repos));
+                    sortEl.addEventListener("change", () => render(repos));
+                } catch (e) {
+                    // Fallback (local preview, blocked fetch, rate-limit, etc.)
+                    render(sampleRepos);
+                    searchEl.addEventListener("input", () => render(sampleRepos));
+                    sortEl.addEventListener("change", () => render(sampleRepos));
+                }
+            }
+
+            loadRepos();
+        </script>
     </body>
 </html>
