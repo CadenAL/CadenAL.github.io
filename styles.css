@@ -70,7 +70,9 @@ a:hover{ text-decoration: underline; }
 .skills,
 .contact,
 .project,
-.card{
+.card,
+.repo-card{
+
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -431,4 +433,13 @@ a:hover{ text-decoration: underline; }
     border: 1px solid var(--border);
     background: var(--panel);
     color: var(--muted);
+}
+
+
+/* Safety: ensure repo cards keep the glass panel even if custom styles fail */
+.card.repo-card{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
