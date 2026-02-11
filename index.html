@@ -177,6 +177,30 @@
             const yearEl = document.getElementById("year");
             yearEl.textContent = new Date().getFullYear();
 
+            // Language color map for the dot (GitHub-ish)
+            const langColors = {
+                JavaScript: "#f1e05a",
+                TypeScript: "#3178c6",
+                HTML: "#e34c26",
+                CSS: "#563d7c",
+                Python: "#3572A5",
+                Java: "#b07219",
+                "C++": "#f34b7d",
+                C: "#555555",
+                Assembly: "#6E4C13",
+                Shell: "#89e051",
+                "Jupyter Notebook": "#DA5B0B",
+            };
+
+            function langColor(lang) {
+                return langColors[lang] || "rgba(122,162,255,0.9)";
+            }
+
+            function pill(label, text, extraClass = "") {
+                return `<span class="stat-pill ${extraClass}" title="${label}">${text}</span>`;
+            }
+
+
             const sampleRepos = [
                 {
                     name: "Adv-Prog-Tech-240",
@@ -228,42 +252,44 @@
                     .replaceAll("'", "&#039;");
             }
 
-            function badge(label, value) {
-                if (!value && value !== 0) return "";
-                return `<span class="meta-pill" title="${label}">${value}</span>`;
-            }
-
             function repoCard(r) {
                 const desc = r.description ? r.description : "No description provided.";
                 const lang = r.language ? r.language : "—";
                 const updated = r.updated_at ? formatDate(r.updated_at) : "";
-                const home = r.homepage ? r.homepage : "";
+                const homepage = String(r.homepage || "").trim();
+
+                // Live pill: if homepage exists OR it's your GitHub Pages repo
+                const isPagesRepo = String(r.name || "").toLowerCase() === `${USERNAME.toLowerCase()}.github.io`;
+                const isLive = Boolean(homepage) || isPagesRepo;
+                const liveUrl = isPagesRepo ? `https://${USERNAME.toLowerCase()}.github.io/` : homepage;
 
                 return `
-                    <article class="card">
-                        <div class="card-top">
+                    <article class="repo-card">
+                        <div class="repo-top">
                             <h3 class="repo-name">
                                 <a href="${r.html_url}" target="_blank" rel="noreferrer">${escapeHtml(r.name)}</a>
                             </h3>
                             <p class="repo-desc">${escapeHtml(desc)}</p>
                         </div>
 
-                        <div class="card-bottom">
-                            <div class="meta">
-                                <span class="lang-dot" aria-hidden="true"></span>
+                        <div class="repo-bottom">
+                            <div class="repo-meta">
+                                <span class="lang-dot" style="background:${langColor(lang)}" aria-hidden="true"></span>
                                 <span class="lang">${escapeHtml(lang)}</span>
                                 <span class="muted">Updated ${escapeHtml(updated)}</span>
                             </div>
 
-                            <div class="meta-right">
-                                ${badge("Stars", r.stargazers_count)}
-                                ${badge("Forks", r.forks_count)}
-                                ${home ? `<a class="tiny-link" href="${home}" target="_blank" rel="noreferrer">Live</a>` : ""}
+                            <div class="repo-stats">
+                                ${pill("Stars", `★ ${r.stargazers_count ?? 0}`)}
+                                ${pill("Forks", `⑂ ${r.forks_count ?? 0}`)}
+                                ${isLive ? `<a class="stat-pill live" href="${liveUrl}" target="_blank" rel="noreferrer">Live</a>` : ""}
                             </div>
                         </div>
                     </article>
                 `;
             }
+
+
 
             function sortRepos(repos, mode) {
                 const arr = [...repos];
