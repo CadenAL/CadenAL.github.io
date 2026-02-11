@@ -1,440 +1,301 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>CSCE Portfolio: Caden Luksic</title>
-        <link rel="stylesheet" href="styles.css" />
-        <meta name="description" content="Student portfolio showcasing projects and GitHub repositories." />
-    </head>
-    <body>
-        <header class="header">
-            <div class="container header-inner">
-                <div class="title-wrap">
-                    <h1>Caden Luksic</h1>
-                    <p class="subtitle">Computer Science • Projects • GitHub</p>
-                </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSCE Portfolio: Caden Luksic</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Student portfolio showcasing projects and GitHub repositories." />
+  </head>
 
-                <nav class="nav">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#repos">GitHub Repos</a>
-                    <a href="#clubs">Clubs</a>
-                    <a href="#contact">Contact</a>
-                </nav>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="title-wrap">
+          <h1>Caden Luksic</h1>
+          <p class="subtitle">Computer Science • Projects • GitHub</p>
+        </div>
+
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#repos">GitHub Repos</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- About Me -->
+      <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about">
+          <img src="images/jaxdrumming.jpg" alt="Profile photo" />
+          <p>
+            Hello! My name is Caden. I’m pursuing a bachelor’s degree in Computer Science.
+            I’m practicing software engineering fundamentals alongside low-level programming (MIPS),
+            and building projects that emphasize clean structure and strong problem-solving.
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="pill-wrap">
+            <span class="pill"><span class="dot"></span>C / C++</span>
+            <span class="pill"><span class="dot"></span>Java</span>
+            <span class="pill"><span class="dot"></span>MIPS</span>
+            <span class="pill"><span class="dot"></span>Data Structures</span>
+            <span class="pill"><span class="dot"></span>Algorithms</span>
+            <span class="pill"><span class="dot"></span>Git/GitHub</span>
+          </div>
+
+          <div class="pill-wrap" style="margin-top: 12px;">
+            <a class="pill" href="files/Resume.pdf" target="_blank" rel="noreferrer">
+              📄 Resume: Download here
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- GitHub Repos -->
+      <section id="repos" class="section">
+        <div class="section-head">
+          <h2>GitHub Repositories</h2>
+
+          <div class="repo-controls">
+            <div class="searchbox">
+              <span class="icon">🔎</span>
+              <input id="search" type="search" placeholder="Search repositories..." autocomplete="off" />
             </div>
-        </header>
 
-        <main class="container">
-            <!-- About Me -->
-            <section id="about" class="section">
-                <h2>About Me</h2>
-                <div class="about">
-                    <img src="images/Ellie.png" alt="Profile photo" />
-                    <p>
-                        Hello! My name is Caden. I’m pursuing a bachelor’s degree in Computer Science. I’m practicing
-                        software engineering fundamentals alongside low-level programming (MIPS), and building projects
-                        that emphasize clean structure and strong problem-solving.
-                    </p>
-                </div>
-            </section>
+            <select id="sort">
+              <option value="updated">Recently Updated</option>
+              <option value="stars">Stars</option>
+              <option value="name">Name</option>
+            </select>
+          </div>
+        </div>
 
-            <!-- Skills -->
-            <section id="skills" class="section">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <div class="pill-wrap">
-                        <span class="pill"><span class="dot"></span>C / C++</span>
-                        <span class="pill"><span class="dot"></span>Java</span>
-                        <span class="pill"><span class="dot"></span>MIPS</span>
-                        <span class="pill"><span class="dot"></span>Python</span>
-                        <span class="pill"><span class="dot"></span>HTML</span>
-                        <span class="pill"><span class="dot"></span>CSS</span>
-                        <span class="pill"><span class="dot"></span>Unix/Linux</span>
-                        <span class="pill"><span class="dot"></span>Git/GitHub</span>
-                    </div>
+        <div class="note repo-status">
+          <p>
+            Showing public repos for
+            <a href="https://github.com/CadenAL" target="_blank" rel="noreferrer">github.com/CadenAL</a>.
+            (If you open this file locally and the GitHub API is blocked/rate-limited, the page will fall back to sample cards.)
+          </p>
+        </div>
 
-                    <div class="pill-wrap" style="margin-top: 12px;">
-                        <a class="pill" href="files/Resume.pdf" target="_blank" rel="noreferrer">
-                            📄 Resume: Download here
-                        </a>
-                    </div>
-                </div>
-            </section>
+        <div id="repoGrid" class="grid" aria-live="polite"></div>
+      </section>
 
-            <!-- GitHub Repos -->
-            <section id="repos" class="section">
-                <div class="section-head">
-                    <h2>GitHub Repositories</h2>
+      <!-- Highlighted projects -->
+      <section class="section">
+        <h2>Highlighted Projects</h2>
 
-                    <div class="repo-controls">
-                        <div class="searchbox">
-                            <span class="icon">🔎</span>
-                            <input id="search" type="search" placeholder="Search repositories..." autocomplete="off" />
-                        </div>
+        <div class="projects">
+          <section class="project">
+            <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer">
+              <h3>Adv Prog Tech (CSCE 240)</h3>
+            </a>
+            <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer">
+              <img src="images/project_placeholder.png" alt="Project preview" />
+            </a>
+            <p>Coursework repository demonstrating C/C++ programming and structured problem solving.</p>
+          </section>
 
-                        <select id="sort">
-                            <option value="updated">Recently Updated</option>
-                            <option value="stars">Stars</option>
-                            <option value="name">Name</option>
-                        </select>
-                    </div>
-                </div>
+          <section class="project">
+            <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer">
+              <h3>Algorithmic Design (CSCE 145)</h3>
+            </a>
+            <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer">
+              <img src="images/algorithmic_design.png" alt="Algorithmic design project preview" />
+            </a>
+            <p>Java projects focusing on algorithmic thinking and data structures.</p>
+          </section>
+        </div>
+      </section>
 
-                <div class="note repo-status">
-                    <p>
-                        Showing public repos for
-                        <a href="https://github.com/CadenAL" target="_blank" rel="noreferrer">github.com/CadenAL</a>.
-                        (If you open this file locally and the GitHub API is blocked/rate-limited, the page will fall
-                        back to sample cards.)
-                    </p>
-                </div>
+      <!-- Contact Me -->
+      <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <div class="contact">
+          <div class="pill-wrap">
+            <a class="pill" href="mailto:caluksic@email.sc.edu">📧 caluksic@email.sc.edu</a>
+            <a class="pill" href="https://github.com/CadenAL" target="_blank" rel="noreferrer">
+              🐙 CadenAL (GitHub)
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-                <div id="repoGrid" class="grid" aria-live="polite"></div>
-            </section>
+    <footer class="footer">
+      <div class="container">
+        <p>© <span id="year"></span> Caden Luksic • Built with HTML/CSS/JS</p>
+      </div>
+    </footer>
 
-            <!-- Highlighted projects -->
-            <section class="section">
-                <h2>Highlighted Projects</h2>
+    <script>
+      const USERNAME = "CadenAL";
+      const repoGrid = document.getElementById("repoGrid");
+      const searchEl = document.getElementById("search");
+      const sortEl = document.getElementById("sort");
+      const yearEl = document.getElementById("year");
+      yearEl.textContent = new Date().getFullYear();
 
-                <div class="projects">
-                    <section class="project">
-                        <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer">
-                            <h3>Adv Prog Tech (CSCE 240)</h3>
-                        </a>
-                        <a href="https://github.com/CadenAL/Adv-Prog-Tech-240" target="_blank" rel="noreferrer">
-                            <img src="images/project_placeholder.png" alt="Project preview" />
-                        </a>
-                        <p>Coursework repository demonstrating C/C++ programming and structured problem solving.</p>
-                    </section>
+      const sampleRepos = [
+        {
+          name: "Adv-Prog-Tech-240",
+          html_url: "https://github.com/CadenAL/Adv-Prog-Tech-240",
+          description: "CSCE 240 coursework: advanced programming techniques in C/C++.",
+          language: "C++",
+          stargazers_count: 0,
+          forks_count: 0,
+          updated_at: new Date().toISOString(),
+          homepage: ""
+        },
+        {
+          name: "CSCE145",
+          html_url: "https://github.com/CadenAL/CSCE145",
+          description: "Algorithmic design projects and labs.",
+          language: "Java",
+          stargazers_count: 0,
+          forks_count: 0,
+          updated_at: new Date().toISOString(),
+          homepage: ""
+        },
+        {
+          name: "More on GitHub",
+          html_url: "https://github.com/CadenAL",
+          description: "See my full project list on GitHub.",
+          language: "Mixed",
+          stargazers_count: 0,
+          forks_count: 0,
+          updated_at: new Date().toISOString(),
+          homepage: ""
+        }
+      ];
 
-                    <section class="project">
-                        <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer">
-                            <h3>Algorithmic Design (CSCE 145)</h3>
-                        </a>
-                        <a href="https://github.com/CadenAL/CSCE145" target="_blank" rel="noreferrer">
-                            <img src="images/algorithmic_design.png" alt="Algorithmic design project preview" />
-                        </a>
-                        <p>Java projects focusing on algorithmic thinking and data structures.</p>
-                    </section>
-                </div>
-            </section>
+      function formatDate(iso) {
+        try {
+          const d = new Date(iso);
+          return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+        } catch {
+          return "";
+        }
+      }
 
-            <!-- Club Activities -->
-            <section id="clubs" class="section">
-                <div class="section-head">
-                    <h2>Club Activities</h2>
+      function escapeHtml(str) {
+        return String(str)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
 
-                    <div class="repo-controls">
-                        <div class="searchbox">
-                            <span class="icon">🔎</span>
-                            <input id="clubSearch" type="search" placeholder="Search club activities..." autocomplete="off" />
-                        </div>
+      function badge(label, value) {
+        if (!value && value !== 0) return "";
+        return `<span class="meta-pill" title="${label}">${value}</span>`;
+      }
 
-                        <select id="clubSort">
-                            <option value="newest">Newest</option>
-                            <option value="club">Club Name</option>
-                            <option value="title">Title</option>
-                        </select>
-                    </div>
-                </div>
+      function repoCard(r) {
+        const desc = r.description ? r.description : "No description provided.";
+        const lang = r.language ? r.language : "—";
+        const updated = r.updated_at ? formatDate(r.updated_at) : "";
+        const home = r.homepage ? r.homepage : "";
 
-                <div class="note repo-status">
-                    <p>
-                        This section highlights what I’ve worked on in student organizations. I update it as I complete new
-                        events and projects.
-                    </p>
-                </div>
-
-                <div id="clubGrid" class="grid" aria-live="polite"></div>
-            </section>
-
-            <!-- Contact Me -->
-            <section id="contact" class="section">
-                <h2>Contact Me</h2>
-                <div class="contact">
-                    <div class="pill-wrap">
-                        <a class="pill" href="mailto:caluksic@email.sc.edu">📧 caluksic@email.sc.edu</a>
-                        <a class="pill" href="https://github.com/CadenAL" target="_blank" rel="noreferrer">
-                            🐙 CadenAL (GitHub)
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div class="container">
-                <p>© <span id="year"></span> Caden Luksic • Built with HTML/CSS/JS</p>
+        return `
+          <article class="card">
+            <div class="card-top">
+              <h3 class="repo-name">
+                <a href="${r.html_url}" target="_blank" rel="noreferrer">${escapeHtml(r.name)}</a>
+              </h3>
+              <p class="repo-desc">${escapeHtml(desc)}</p>
             </div>
-        </footer>
 
-        <script>
-            const USERNAME = "CadenAL";
-            const repoGrid = document.getElementById("repoGrid");
-            const searchEl = document.getElementById("search");
-            const sortEl = document.getElementById("sort");
-            const yearEl = document.getElementById("year");
-            yearEl.textContent = new Date().getFullYear();
+            <div class="card-bottom">
+              <div class="meta">
+                <span class="lang-dot" aria-hidden="true"></span>
+                <span class="lang">${escapeHtml(lang)}</span>
+                <span class="muted">Updated ${escapeHtml(updated)}</span>
+              </div>
 
-            const sampleRepos = [
-                {
-                    name: "Adv-Prog-Tech-240",
-                    html_url: "https://github.com/CadenAL/Adv-Prog-Tech-240",
-                    description: "CSCE 240 coursework: advanced programming techniques in C/C++.",
-                    language: "C++",
-                    stargazers_count: 0,
-                    forks_count: 0,
-                    updated_at: new Date().toISOString(),
-                    homepage: "",
-                },
-                {
-                    name: "CSCE145",
-                    html_url: "https://github.com/CadenAL/CSCE145",
-                    description: "Algorithmic design projects and labs.",
-                    language: "Java",
-                    stargazers_count: 0,
-                    forks_count: 0,
-                    updated_at: new Date().toISOString(),
-                    homepage: "",
-                },
-                {
-                    name: "More on GitHub",
-                    html_url: "https://github.com/CadenAL",
-                    description: "See my full project list on GitHub.",
-                    language: "Mixed",
-                    stargazers_count: 0,
-                    forks_count: 0,
-                    updated_at: new Date().toISOString(),
-                    homepage: "",
-                },
-            ];
+              <div class="meta-right">
+                ${badge("Stars", r.stargazers_count)}
+                ${badge("Forks", r.forks_count)}
+                ${home ? `<a class="tiny-link" href="${home}" target="_blank" rel="noreferrer">Live</a>` : ""}
+              </div>
+            </div>
+          </article>
+        `;
+      }
 
-            function formatDate(iso) {
-                try {
-                    const d = new Date(iso);
-                    return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
-                } catch {
-                    return "";
-                }
-            }
+      function sortRepos(repos, mode) {
+        const arr = [...repos];
+        if (mode === "name") arr.sort((a, b) => a.name.localeCompare(b.name));
+        else if (mode === "stars") arr.sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0));
+        else arr.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        return arr;
+      }
 
-            function escapeHtml(str) {
-                return String(str)
-                    .replaceAll("&", "&amp;")
-                    .replaceAll("<", "&lt;")
-                    .replaceAll(">", "&gt;")
-                    .replaceAll('"', "&quot;")
-                    .replaceAll("'", "&#039;");
-            }
+      function render(repos) {
+        const q = searchEl.value.trim().toLowerCase();
+        const mode = sortEl.value;
 
-            function badge(label, value) {
-                if (!value && value !== 0) return "";
-                return `<span class="meta-pill" title="${label}">${value}</span>`;
-            }
+        let filtered = repos;
+        if (q) {
+          filtered = repos.filter(r =>
+            (r.name && r.name.toLowerCase().includes(q)) ||
+            (r.description && r.description.toLowerCase().includes(q)) ||
+            (r.language && r.language.toLowerCase().includes(q))
+          );
+        }
 
-            function repoCard(r) {
-                const desc = r.description ? r.description : "No description provided.";
-                const lang = r.language ? r.language : "—";
-                const updated = r.updated_at ? formatDate(r.updated_at) : "";
-                const home = r.homepage ? r.homepage : "";
+        filtered = sortRepos(filtered, mode);
 
-                return `
-                    <article class="card">
-                        <div class="card-top">
-                            <h3 class="repo-name">
-                                <a href="${r.html_url}" target="_blank" rel="noreferrer">${escapeHtml(r.name)}</a>
-                            </h3>
-                            <p class="repo-desc">${escapeHtml(desc)}</p>
-                        </div>
+        if (!filtered.length) {
+          repoGrid.innerHTML = `<div class="empty">No repositories match your search.</div>`;
+          return;
+        }
 
-                        <div class="card-bottom">
-                            <div class="meta">
-                                <span class="lang-dot" aria-hidden="true"></span>
-                                <span class="lang">${escapeHtml(lang)}</span>
-                                <span class="muted">Updated ${escapeHtml(updated)}</span>
-                            </div>
+        repoGrid.innerHTML = filtered.map(repoCard).join("");
+      }
 
-                            <div class="meta-right">
-                                ${badge("Stars", r.stargazers_count)}
-                                ${badge("Forks", r.forks_count)}
-                                ${home ? `<a class="tiny-link" href="${home}" target="_blank" rel="noreferrer">Live</a>` : ""}
-                            </div>
-                        </div>
-                    </article>
-                `;
-            }
+      async function loadRepos() {
+        repoGrid.innerHTML = `<div class="loading">Loading repositories…</div>`;
 
-            function sortRepos(repos, mode) {
-                const arr = [...repos];
-                if (mode === "name") {
-                    arr.sort((a, b) => a.name.localeCompare(b.name));
-                } else if (mode === "stars") {
-                    arr.sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0));
-                } else {
-                    arr.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-                }
-                return arr;
-            }
+        try {
+          const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
+          if (!res.ok) throw new Error("GitHub API error");
+          const data = await res.json();
 
-            function render(repos) {
-                const q = searchEl.value.trim().toLowerCase();
-                const mode = sortEl.value;
+          const repos = data
+            .filter(r => !r.fork)
+            .map(r => ({
+              name: r.name,
+              html_url: r.html_url,
+              description: r.description,
+              language: r.language,
+              stargazers_count: r.stargazers_count,
+              forks_count: r.forks_count,
+              updated_at: r.updated_at,
+              homepage: r.homepage
+            }));
 
-                let filtered = repos;
-                if (q) {
-                    filtered = repos.filter(
-                        r =>
-                            (r.name && r.name.toLowerCase().includes(q)) ||
-                            (r.description && r.description.toLowerCase().includes(q)) ||
-                            (r.language && r.language.toLowerCase().includes(q)),
-                    );
-                }
+          render(repos);
+          searchEl.addEventListener("input", () => render(repos));
+          sortEl.addEventListener("change", () => render(repos));
+        } catch (e) {
+          render(sampleRepos);
+          searchEl.addEventListener("input", () => render(sampleRepos));
+          sortEl.addEventListener("change", () => render(sampleRepos));
+        }
+      }
 
-                filtered = sortRepos(filtered, mode);
-
-                if (!filtered.length) {
-                    repoGrid.innerHTML = `<div class="empty">No repositories match your search.</div>`;
-                    return;
-                }
-
-                repoGrid.innerHTML = filtered.map(repoCard).join("");
-            }
-
-            async function loadRepos() {
-                repoGrid.innerHTML = `<div class="loading">Loading repositories…</div>`;
-
-                try {
-                    const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
-                    if (!res.ok) throw new Error("GitHub API error");
-                    const data = await res.json();
-
-                    const repos = data
-                        .filter(r => !r.fork)
-                        .map(r => ({
-                            name: r.name,
-                            html_url: r.html_url,
-                            description: r.description,
-                            language: r.language,
-                            stargazers_count: r.stargazers_count,
-                            forks_count: r.forks_count,
-                            updated_at: r.updated_at,
-                            homepage: r.homepage,
-                        }));
-
-                    render(repos);
-
-                    searchEl.addEventListener("input", () => render(repos));
-                    sortEl.addEventListener("change", () => render(repos));
-                } catch (e) {
-                    render(sampleRepos);
-                    searchEl.addEventListener("input", () => render(sampleRepos));
-                    sortEl.addEventListener("change", () => render(sampleRepos));
-                }
-            }
-
-            loadRepos();
-
-            // ============================
-            // Club Activities
-            // ============================
-            const clubGrid = document.getElementById("clubGrid");
-            const clubSearchEl = document.getElementById("clubSearch");
-            const clubSortEl = document.getElementById("clubSort");
-
-            // Add new items here over time
-            // Put images in: /images/clubs/
-            const clubActivities = [
-                {
-                    title: "Hackathon: Campus Event Finder",
-                    club: "ACM",
-                    date: "2026-02-01",
-                    image: "images/clubs/placeholder1.png",
-                    description:
-                        "Developed a small web application with a team that helps students locate campus events. Worked on backend logic and testing.",
-                    link: ""
-                },
-                {
-                    title: "Linux Security Workshop",
-                    club: "Cybersecurity Club",
-                    date: "2026-01-15",
-                    image: "images/clubs/placeholder2.png",
-                    description:
-                        "Practiced Linux user permissions, security auditing, and basic hardening techniques during a hands-on workshop.",
-                    link: ""
-                }
-            ];
-
-            function clubCard(item) {
-                const safeTitle = escapeHtml(item.title || "Club Activity");
-                const safeClub = escapeHtml(item.club || "Club");
-                const safeDesc = escapeHtml(item.description || "");
-                const safeDate = item.date ? formatDate(item.date) : "";
-
-                const img = item.image ? escapeHtml(item.image) : "images/project_placeholder.png";
-                const link = item.link ? item.link : "";
-
-                const titleHtml = link
-                    ? `<a href="${link}" target="_blank" rel="noreferrer">${safeTitle}</a>`
-                    : safeTitle;
-
-                return `
-                    <article class="card">
-                        <h3 class="club-title">${titleHtml}</h3>
-
-                        <div class="club-meta">
-                            <span class="meta-pill">🏷️ ${safeClub}</span>
-                            ${safeDate ? `<span class="meta-pill">📅 ${escapeHtml(safeDate)}</span>` : ""}
-                        </div>
-
-                        <img class="club-img" src="${img}" alt="${safeTitle} preview" />
-
-                        <p class="club-desc">${safeDesc}</p>
-                    </article>
-                `;
-            }
-
-            function sortClubs(items, mode) {
-                const arr = [...items];
-
-                if (mode === "title") {
-                    arr.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
-                } else if (mode === "club") {
-                    arr.sort((a, b) => (a.club || "").localeCompare(b.club || ""));
-                } else {
-                    arr.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-                }
-
-                return arr;
-            }
-
-            function renderClubs(items) {
-                const q = clubSearchEl.value.trim().toLowerCase();
-                const mode = clubSortEl.value;
-
-                let filtered = items;
-                if (q) {
-                    filtered = items.filter(
-                        i =>
-                            (i.title && i.title.toLowerCase().includes(q)) ||
-                            (i.club && i.club.toLowerCase().includes(q)) ||
-                            (i.description && i.description.toLowerCase().includes(q)),
-                    );
-                }
-
-                filtered = sortClubs(filtered, mode);
-
-                if (!filtered.length) {
-                    clubGrid.innerHTML = `<div class="empty">No club activities match your search.</div>`;
-                    return;
-                }
-
-                clubGrid.innerHTML = filtered.map(clubCard).join("");
-            }
-
-            clubSearchEl.addEventListener("input", () => renderClubs(clubActivities));
-            clubSortEl.addEventListener("change", () => renderClubs(clubActivities));
-            renderClubs(clubActivities);
-        </script>
-    </body>
+      loadRepos();
+    </script>
+  </body>
 </html>
