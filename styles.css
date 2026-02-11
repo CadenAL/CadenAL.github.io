@@ -70,9 +70,7 @@ a:hover{ text-decoration: underline; }
 .skills,
 .contact,
 .project,
-.card,
-.repo-card{
-
+.card{
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -325,42 +323,34 @@ a:hover{ text-decoration: underline; }
 
 
 /* ============================
-   Repo Cards (match GitHub-style screenshot)
+   GitHub Repo Cards (screenshot style)
+   Uses .card.repo-card so it inherits your glass panel from .card
 ============================ */
-.repo-card{
+
+.card.repo-card{
+    /* keep your base glass panel from .card, just tighten spacing to match the screenshot */
     padding: 16px 16px 14px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.06);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    transition: transform .14s ease, border-color .14s ease, background .14s ease;
-    min-height: 140px;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 140px;
 }
 
-.repo-card:hover{
-    transform: translateY(-2px);
-    border-color: rgba(122,162,255,0.35);
-    background: rgba(255,255,255,0.075);
-}
-
-.repo-name{
+.card.repo-card .repo-name{
     margin: 0 0 6px;
     font-weight: 800;
     font-size: 1rem;
 }
 
-.repo-name a{
-    color: var(--text);
+.card.repo-card .repo-name a{
+    color: var(--accent);
     text-decoration: none;
 }
-.repo-name a:hover{ text-decoration: underline; }
+.card.repo-card .repo-name a:hover{
+    text-decoration: underline;
+}
 
-.repo-desc{
+.card.repo-card .repo-desc{
     margin: 0 0 12px;
     color: rgba(255,255,255,0.68);
     font-size: 0.82rem;
@@ -368,7 +358,7 @@ a:hover{ text-decoration: underline; }
     min-height: 34px;
 }
 
-.repo-bottom{
+.card.repo-card .repo-bottom{
     display:flex;
     align-items:center;
     justify-content: space-between;
@@ -377,7 +367,7 @@ a:hover{ text-decoration: underline; }
     border-top: 1px solid rgba(255,255,255,0.10);
 }
 
-.repo-meta{
+.card.repo-card .repo-meta{
     display:flex;
     align-items:center;
     gap: 10px;
@@ -386,7 +376,7 @@ a:hover{ text-decoration: underline; }
     white-space: nowrap;
 }
 
-.lang-dot{
+.card.repo-card .lang-dot{
     width: 10px;
     height: 10px;
     border-radius: 999px;
@@ -394,7 +384,7 @@ a:hover{ text-decoration: underline; }
     box-shadow: 0 0 0 2px rgba(0,0,0,0.22);
 }
 
-.repo-stats{
+.card.repo-card .repo-stats{
     display:flex;
     align-items:center;
     gap: 8px;
@@ -411,7 +401,7 @@ a:hover{ text-decoration: underline; }
     align-items:center;
     justify-content:center;
     font-size: 0.75rem;
-    min-width: 34px;
+    min-width: 38px;
     text-decoration:none;
 }
 
@@ -421,12 +411,6 @@ a:hover{ text-decoration: underline; }
     color: rgba(210,255,240,0.95);
 }
 
-.muted{
-    color: var(--muted);
-    opacity: .85;
-}
-
-/* Small states */
 .loading, .empty{
     padding: 14px 16px;
     border-radius: var(--radius);
@@ -435,11 +419,3 @@ a:hover{ text-decoration: underline; }
     color: var(--muted);
 }
 
-
-/* Safety: ensure repo cards keep the glass panel even if custom styles fail */
-.card.repo-card{
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
