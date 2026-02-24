@@ -37,13 +37,16 @@ The site is built as a lightweight **static website** using modern HTML and CSS 
 ---
 
 ## 📂 Project Structure
+
+```
 CadenAL.github.io/
-- │
-- ├── index.html
-- ├── styles.css
-- ├── images/
-- ├── files/
-- └── README.md
+│
+├── index.html
+├── styles.css
+├── images/
+├── files/
+└── README.md
+```
 
 ---
 
